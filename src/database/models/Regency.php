@@ -18,6 +18,8 @@ class Regency extends Model
      * @var string
      */
     protected $table = 'regencies';
+    protected $primaryKey = 'code';
+    public $incrementing = false;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -25,7 +27,7 @@ class Regency extends Model
      * @var array
      */
     protected $hidden = [
-        'province_id'
+        'province_code'
     ];
 
     /**

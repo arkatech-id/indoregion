@@ -19,6 +19,8 @@ class Village extends Model
      * @var string
      */
     protected $table = 'villages';
+    protected $primaryKey = 'code';
+    public $incrementing = false;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,7 +28,7 @@ class Village extends Model
      * @var array
      */
     protected $hidden = [
-        'district_id'
+        'district_code'
     ];
 
 	/**

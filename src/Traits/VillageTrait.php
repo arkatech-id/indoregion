@@ -8,34 +8,34 @@ trait VillageTrait
     /**
      * Check if village is sub province.
      *
-     * @param int $id Id of province
+     * @param int $code Code of province
      * @return bool
      */
-    public function isProvince($id)
+    public function isProvince($code)
     {
-        return $this->district->regency->province_id == $id ? true : false;
+        return $this->district->regency->province_code == $code ? true : false;
     }
 
     /**
      * Check if village is sub regency.
      *
-     * @param int $id Id of regency
+     * @param int $code Code of regency
      * @return bool
      */
-    public function isRegency($id)
+    public function isRegency($code)
     {
-        return $this->district->regency_id == $id ? true : false;
+        return $this->district->regency_code == $code ? true : false;
     }
 
     /**
      * Check if village is sub district.
      *
-     * @param int $id Id of district
+     * @param int $code Code of district
      * @return bool
      */
-    public function isDistrict($id)
+    public function isDistrict($code)
     {
-        return $this->district_id == $id ? true : false;
+        return $this->district_code == $code ? true : false;
     }
 
     /**

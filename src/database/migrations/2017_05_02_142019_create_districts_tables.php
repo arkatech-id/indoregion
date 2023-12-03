@@ -14,11 +14,11 @@ class CreateDistrictsTables extends Migration
     public function up()
     {
         Schema::create('districts', function(Blueprint $table){
-            $table->char('id', 8)->index();
-            $table->char('regency_id', 5);
+            $table->char('code', 8)->index();
+            $table->char('regency_code', 5);
             $table->string('name', 50);
-            $table->foreign('regency_id')
-                ->references('id')
+            $table->foreign('regency_code')
+                ->references('code')
                 ->on('regencies')
                 ->onUpdate('cascade')->onDelete('restrict');
         });

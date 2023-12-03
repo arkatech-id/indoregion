@@ -52,18 +52,18 @@ trait ProvinceTrait
     }
 
     /**
-     * check if province has districts by ID.
+     * check if province has districts by Code.
      *
      * @param string|array $name District name or array of district names.
      * @param bool $requireAll All district in the array are required.
      *
      * @return bool
      */
-    public function hasDistrictId($id, $requireAll = false)
+    public function hasDistrictCode($code, $requireAll = false)
     {
-        if (is_array($id)) {
-            foreach ($id as $districtId) {
-                $hasDistrict = $this->hasDistrictId($districtId);
+        if (is_array($code)) {
+            foreach ($code as $districtCode) {
+                $hasDistrict = $this->hasDistrictCode($districtCode);
                 if ($hasDistrict && !$requireAll) {
                     return true;
                 } elseif (!$hasDistrict && $requireAll) {
@@ -76,8 +76,8 @@ trait ProvinceTrait
             // Return the value of $requireAll;
             return $requireAll;
         } else {
-            $getDistrictId = array_column($this->districts->toArray(), "id");
-            if (in_array(strtoupper($id), $getDistrictId)) {
+            $getDistrictCode = array_column($this->districts->toArray(), "id");
+            if (in_array(strtoupper($code), $getDistrictCode)) {
                 return true;
             }
         }

@@ -20,6 +20,8 @@ class District extends Model
      * @var string
      */
     protected $table = 'districts';
+    protected $primaryKey = 'code';
+    public $incrementing = false;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -27,7 +29,7 @@ class District extends Model
      * @var array
      */
     protected $hidden = [
-        'regency_id'
+        'regency_code'
     ];
 
     /**

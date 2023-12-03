@@ -52,18 +52,18 @@ trait RegencyTrait
     }
 
     /**
-     * check if regency has villages by ID.
+     * check if regency has villages by Code.
      *
      * @param string|array $name Villages name or array of villages names.
      * @param bool $requireAll All villages in the array are required.
      *
      * @return bool
      */
-    public function hasVillageId($id, $requireAll = false)
+    public function hasVillageCode($code, $requireAll = false)
     {
-        if (is_array($id)) {
-            foreach ($id as $villageId) {
-                $hasVillage = $this->hasVillageId($villageId);
+        if (is_array($code)) {
+            foreach ($code as $villageCode) {
+                $hasVillage = $this->hasVillageCode($villageCode);
                 if ($hasVillage && !$requireAll) {
                     return true;
                 } elseif (!$hasVillage && $requireAll) {
@@ -76,8 +76,8 @@ trait RegencyTrait
             // Return the value of $requireAll;
             return $requireAll;
         } else {
-            $getVillageId = array_column($this->villages->toArray(), "id");
-            if (in_array(strtoupper($id), $getVillageId)) {
+            $getVillageCode = array_column($this->villages->toArray(), "id");
+            if (in_array(strtoupper($code), $getVillageCode)) {
                 return true;
             }
         }
